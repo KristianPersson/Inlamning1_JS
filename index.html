@@ -17,42 +17,83 @@
 <body>
     <div class ="container d-flex justify-content-center mt-5">
         <div class="col-12 col-md-6">
-         
-    
-    
-    
-    
-                <form id="form">
-                    <label for="firstName" class="form-label">Förnamn</label>
-                    <input id="firstName" name="firstName"type="text" class="form-control needs-validation mb-3" placeholder="Min. 2 tecken">
-
-                    <label for="lastName" class="form-label">Last Name</label>
-                    <input id="lastName" name="lastName" type="text" class="form-control needs-validation mb-3" placeholder="Min. 2 tecken">
+                <form id="form" onSubmit="onSubmit(event)">
+                    
+                    <div class="row">
+                        <div class="col">
+                            <label for="firstName" class="form-label">Förnamn</label>
+                            <input id="firstName" name="firstName"type="text" class="form-control needs-validation mb-1" placeholder="Min. 2 tecken">
+                            <div class="invalid-feedback">
+                                Namnet måste vara minst 2 tecken.
+                              </div>
+                        </div>
+                        <div class="col">
+                            <label for="lastName" class="form-label">Efternamn</label>
+                            <input id="lastName" name="lastName" type="text" class="form-control needs-validation mb-1" placeholder="Min. 2 tecken">
+                            <div class="invalid-feedback">
+                                Namnet måste vara minst 2 tecken.
+                              </div>
+                        </div>
+                      </div>
 
                     <label for="email" class="form-label">E-postadress</label>
-                    <input id="email" name="email" type="email" class="form-control needs-validation mb-3" placeholder="Giltig e-postadress">
+                    <input id="email" name="email" type="email" class="form-control needs-validation mb-1" placeholder="Giltig e-postadress">
+                    <div class="invalid-feedback">
+                        E-postadressen måste vara en giltig e-postadress.
+                      </div>
 
                     <label for="password" class="form-label">Lösenord</label>
-                    <input id="password" name="password" type="password" class="form-control needs-validation mb-3" placeholder="Min. 8 tecken">
+                    <input id="password" name="password" type="password" class="form-control needs-validation mb-1" placeholder="Min. 8 tecken">
+                    <div class="invalid-feedback">
+                        Lösenordet måste vara minst 8 tecken.
+                      </div>
 
                     <label for="confirmPassword" class="form-label">Bekräfta Lösenord</label>
-                    <input id="confirmPassword" name="confirmPassword" type="confirmPassword" class="form-control needs-validation mb-3" placeholder="Min. 8 tecken">
+                    <input id="confirmPassword" name="confirmPassword" type="password" class="form-control needs-validation mb-1" placeholder="Min. 8 tecken">
+                    <div class="invalid-feedback">
+                        Lösenorden måste vara likadana.
+                      </div>
 
                     <label for="birthDate" class="form-label">Födelsedatum</label>
-                    <input id="birthDate" name="birthDate" type="birthDate" class="form-control needs-validation mb-3">
-
+                    <div class="row g-3">
+                        <div class="col">
+                            <input id="day" name="day" type="day" placeholder="Dag" class="form-control needs-validation mb-1">
+                        </div>
+                        <div class="col">
+                            <input id="month" name="month" type="monthDate" placeholder="Månad" class="form-control needs-validation mb-1">
+                        </div>
+                        <div class="col">
+                            <input id="year" name="year" type="year" placeholder="År" class="form-control needs-validation mb-1">
+                            <div class="invalid-feedback">
+                                Man måste vara 18 år.
+                              </div>
+                        </div>
+                      </div>
+                    
                     <label for="adress" class="form-label">Adress</label>
-                    <input id="adress" name="adress" type="adress" class="form-control needs-validation mb-4" placeholder="Gatunamn & nummer">
-                   
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                        <label class="form-check-label" for="flexCheckChecked">
-                            Klicka i om du är 18 år
-                        </label>
+                    <div class="row g-3">
+                        <div class="col-sm-7">
+                            <input id="adress" name="adress" type="text" class="form-control needs-validation mb-1" placeholder="Gatunamn & nummer">
+                            <div class="invalid-feedback">
+                                Adressen måste vara minst 2 tecken.
+                              </div>
+                        </div>
+                        <div class="col">
+                            <input id="town" type="text" class="form-control needs-validation" placeholder="Stad" aria-label="State">
+                            <div class="invalid-feedback">
+                                Adressen måste vara minst 2 tecken.
+                              </div>
+                        </div>
+                        <div class="col">
+                            <input id="zip" type="zip" class="form-control needs-validation" placeholder="Postnr" aria-label="zip">
+                            <div class="invalid-feedback">
+                                Postnummret måste vara 5 tecken.
+                              </div>
+                        </div>
                       </div>
 
                       <div class="d-grid">
-                            <button class="mt-4 btn btn-secondary">SKICKA</button>
+                            <button class="mt-3 btn btn-secondary">SKICKA</button>
                       </div>
                   
                 </form>

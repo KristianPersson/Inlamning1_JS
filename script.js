@@ -13,16 +13,8 @@ if(firstName.value === '' || firstName.value == null) {
 }*/
 
 
+
 var forms = document.querySelectorAll('.needs-validation')
-
-
-function validMinValue(value, minValue = 2) {
-    if(value.length < minValue)
-        return false
-        else
-        return true
-}
-
 
 //Email validation
 function validEmail(value) {
@@ -32,29 +24,107 @@ function validEmail(value) {
         return false
         else
         return true
-}
+    }
+
+    function validText(value, minValue = 2) {
+        if(value.length < minValue)
+            return false
+            else
+            return true
+    }
+
+    function validPassword(value, minValue = 8) {
+        if(value.length < minValue)
+            return false
+            else
+            return true
+    }
+    
+    function validConfirmPassword(value, minValue = 8) {
+        if(value.length < minValue)
+            return false
+            else
+            return true
+    }
+
+    function validYear(value, minValue = 2003){
+        if(value > minValue)
+        return false
+        else
+        return true
+    }
+    
+    function validZip(value, minValue = 5) {
+        if(value.length !== minValue )
+            return false
+            else
+            return true
+    }
+
 
 forms.forEach(element => {
 
     switch(element.type) {
         case "text":
-            element.addEventListener("keyup", function(e))
+            element.addEventListener("keyup", function(e) {
                 
-                if(!validMinValue(e.target.value))
+                if(!validText(e.target.value))
                     e.target.classList.add("is-invalid");
                 else
                     e.target.classList.remove("is-invalid");
+                })
             break;
         case "email":
-            element.addEventListener("keyup", function(e) {console.log(validEmail(e.target.value))})
+            element.addEventListener("keyup", function(e){
+                if(!validEmail(e.target.value))
+                    e.target.classList.add("is-invalid");
+                else
+                    e.target.classList.remove("is-invalid");
+            })
             
             break;
+            case "password":
+                element.addEventListener("keyup", function(e) {
+                    
+                    if(!validPassword(e.target.value))
+                        e.target.classList.add("is-invalid");
+                    else
+                        e.target.classList.remove("is-invalid");
+                    })
+                break;
         
-        
-        
+              
+                
+            
+
         }
 
-
+        switch (element.id){
+            
+            case "zip":
+                element.addEventListener("keyup", function(e) {
+                    
+                    if(!validZip(e.target.value))
+                        e.target.classList.add("is-invalid");
+                    else
+                        e.target.classList.remove("is-invalid");
+                    })
+                break;
+        
+                case "year":
+                    element.addEventListener("keyup", function(e) {
+                        
+                        if(!validYear(e.target.value))
+                            e.target.classList.add("is-invalid");
+                        else
+                            e.target.classList.remove("is-invalid");
+                        })
+                    break;
+        
+            }
+    
+        
+      
 }
 
 
